@@ -13,25 +13,21 @@ hide_streamlit_style = """
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 </style>
-
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
 def read_markdown_file(markdown_file):
     return Path(markdown_file).read_text()
 
-activities = ["About" ,"License Plate Number Detection"]
-choice = st.sidebar.selectbox("Select Activty",activities)
-    
-if choice =='About':
-    st.title("Vehicle License Plate Detection at Security Checkpoints")   
-    intro_markdown = read_markdown_file("about.md")
-    st.markdown(intro_markdown, unsafe_allow_html=True)
+st.title("Vehicle License Plate Detection at Security Checkpoints")   
+intro_markdown = read_markdown_file("about.md")
+st.markdown(intro_markdown, unsafe_allow_html=True)
 
-if choice == "License Plate Number Detection":
-    st.title("Upload Image")
-    image_file = st.file_uploader("Upload Image",type=['jpg'])
+st.title("Test our model")
+image_file = st.file_uploader("Upload Image",type=['jpg'])
 
-    if image_file is not None:
+
+if image_file is not None:
             our_image = Image.open(image_file)
             im = our_image.save('out.jpg')
             
@@ -84,4 +80,6 @@ if choice == "License Plate Number Detection":
 
             st.subheader('ORIGNAL IMAGE')
             st.image(our_image , use_column_width=True,channels='RGB')
+developer_markdown = read_markdown_file("developer.md")
+st.markdown(developer_markdown, unsafe_allow_html=True)
 
