@@ -10,12 +10,4 @@ segmentation and prediction from the pictures of the panel, and the visual chara
 
 ---
 
-## Developer
-
--  Ameya Upalanchi
--  Kaushal Shinde
--  Shubham Kumar
-- Tejasvi Shiv
-
----
 
