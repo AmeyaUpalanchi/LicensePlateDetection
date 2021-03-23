@@ -8,7 +8,14 @@ import easyocr
 from PIL import Image , ImageEnhance
 from pathlib import Path
 
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
 
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 def read_markdown_file(markdown_file):
     return Path(markdown_file).read_text()
 
